@@ -11,9 +11,9 @@ const db = new sqlite.Database(DB_FILE_NAME, (err) => {
 
 function initDB() {
   db.run(`
-    CREATE TABLE IF NOT EXIST users (
+    CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
-      username TEXT UNIQUE,
+      username TEXT UNIQUE
     )
   `);
 }
@@ -42,5 +42,5 @@ module.exports = {
   insertUser,
   getUsers,
   initDB,
-  
+
 }

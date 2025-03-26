@@ -13,27 +13,31 @@ function initDB() {
   db.run(`
     CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
-      username TEXT UNIQUE
+      username TEXT UNIQUE NOT NULL
     )
   `);
 }
 
-function insertUser(username) {
-  db.run(`INSERT INTO users (username) VALUES (?)`,[username], (err) => {
+function insertUser(username, callback) {
+  db.run("INSERT INTO users (username) VALUES (?)",[username], (err) => {
     if (err) {
       console.error(`❌ INSERT FAILED!: ${err}`)
+      callback(err, null)
     } else {
       console.log("✔️ INSERT SUCCESS!")
+      callback(null, username)
     }
   })
 }
 
-function getUsers() {
-  db.all(`SELECT * FROM users`, (err, rows) => {
+function getUsers(callback) {
+  db.all("SELECT * FROM users", (err, rows) => {
     if (err) {
       console.error(`❌ FETCH FAILED!: ${err}`)
+      callback(err, null)
     } else {
-      return rows
+      console.error(`✔️ FETCH SUCESS!`)
+      callback(null, rows)
     }
   })
 }

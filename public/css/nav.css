@@ -1,0 +1,17 @@
+.nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 20px;
+    width: 600px;   
+    height: 40px; 
+
+    border-radius: 10px;
+    background-color: rgb(185, 185, 185);
+}
+
+.nav div {
+    margin-left: 20px;
+    margin-right: 20px;
+}

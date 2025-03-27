@@ -1,0 +1,26 @@
+<div class="main-frame">
+    <div class="home">
+        <div class="left-pannel">
+            <div id="pie-card">
+                <img src="/assets/home/graph.png" alt="" srcset="">
+            </div>
+            <div id="ai-card">
+                <a href="">
+                    <img src="/assets/home/ai.png" alt="" srcset="">
+                </a>
+                <p id="textOut">Lorem ipsum, dolor sit amet consectetur adipisicing elit. In doloribus officia eos voluptatibus recusandae repellendus error soluta, neque quod esse minus </p>
+            </div>
+        </div>
+        <div class="right-pannel">
+            <div id="card-grid">
+                <% cards.forEach(card => { %>
+                    <button>
+                        <label for="card"><%= card.label %></label>
+                        <h1><%= card.emoji %></h1>
+                        <p>₹<%= card.value %></p>
+                    </button>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
